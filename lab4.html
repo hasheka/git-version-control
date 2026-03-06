@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RoseWear Boutique</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #fff1f6;
+            color: #4a1f2f;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #f8a1c4, #fbc2d9);
+            padding: 35px 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            letter-spacing: 3px;
+            font-size: 32px;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        section {
+            background-color: #ffffff;
+            width: 80%;
+            margin: 35px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(248,161,196,0.25);
+        }
+
+        h2 {
+            color: #c2185b;
+        }
+
+        .product {
+            display: inline-block;
+            width: 220px;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: #fff7fa;
+            border: 1px solid #f4b6cc;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px 22px;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        input, textarea {
+            width: 60%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #f4b6cc;
+        }
+
+        #orderSection {
+            display: none;
+        }
+
+        footer {
+            background: linear-gradient(to right, #fbc2d9, #f8a1c4);
+            padding: 30px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ROSEWEAR BOUTIQUE</h1>
+    <p class="tagline">Graceful Dresses with a Floral Touch</p>
+</header>
+
+<section>
+    <h2>About Us</h2>
+    <p id="aboutText">
+        RoseWear Boutique offers elegant floral dresses designed for comfort and style.
+    </p>
+    <button onclick="changeAbout()">Know More</button>
+</section>
+
+<section>
+    <h2>Our Dresses</h2>
+
+    <div class="product">
+        <img src="floraldress.png">
+        <p>Floral Summer Dress<br>₹1,499</p>
+        <button onclick="showOrder()">Order Now</button>
+    </div>
+
+    <div class="product">
+        <img src="pinkdress.png">
+        <p>Pink Party Wear Dress<br>₹2,299</p>
+        <button onclick="showOrder()">Order Now</button>
+    </div>
+
+    <div class="product">
+        <img src="dress3.png">
+        <p>Soft Cotton Casual Dress<br>₹999</p>
+        <button onclick="showOrder()">Order Now</button>
+    </div>
+</section>
+
+<section id="orderSection">
+    <h2>Order Details</h2>
+    <form onsubmit="submitOrder(event)">
+        <input type="text" placeholder="Full Name" required><br>
+        <input type="tel" placeholder="Phone Number" required><br>
+        <textarea placeholder="Delivery Address" required></textarea><br>
+        <button type="submit">Submit Order</button>
+    </form>
+    <p id="successMsg"></p>
+</section>
+
+<footer>
+    <h2>Contact Information</h2>
+    <p>
+        Email: rosewearboutique@gmail.com <br>
+        Phone: +91 91234 56789 <br>
+        Address: T. Nagar, Chennai <br>
+        Website: www.rosewearboutique.com
+    </p>
+</footer>
+
+<script>
+    function showOrder() {
+        document.getElementById("orderSection").style.display = "block";
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function submitOrder(event) {
+        event.preventDefault();
+        document.getElementById("successMsg").innerHTML =
+            "🌸 Thank you! Your order has been placed successfully.";
+    }
+
+    function changeAbout() {
+        document.getElementById("aboutText").innerHTML =
+            "We provide premium-quality floral dresses with fast delivery and customer satisfaction.";
+    }
+</script>
+
+</body>
+</html>

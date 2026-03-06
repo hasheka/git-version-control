@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RoseWear Boutique</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #fff1f6;
+            color: #4a1f2f;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #f8a1c4, #fbc2d9);
+            color: #4a1f2f;
+            padding: 35px 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            letter-spacing: 3px;
+            font-size: 32px;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #6b2a40;
+        }
+
+        /* Sections */
+        section {
+            background-color: #ffffff;
+            width: 80%;
+            margin: 35px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(248,161,196,0.25);
+        }
+
+        h2 {
+            color: #c2185b;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.7;
+            width: 85%;
+            margin: auto;
+        }
+
+        /* Products */
+        .product {
+            display: inline-block;
+            width: 220px;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: #fff7fa;
+            border: 1px solid #f4b6cc;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .product p {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        button {
+            margin-top: 12px;
+            padding: 10px 22px;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        /* Form */
+        form {
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            width: 60%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #f4b6cc;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #fbc2d9, #f8a1c4);
+            color: #4a1f2f;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            color: #6b2a40;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ROSEWEAR BOUTIQUE</h1>
+    <p class="tagline">Graceful Dresses with a Floral Touch</p>
+</header>
+
+<section>
+    <h2>About Us</h2>
+    <p>
+        RoseWear Boutique is a floral-inspired dress store offering elegant,
+        comfortable, and trendy outfits for women. We focus on beauty, softness,
+        and easy ordering for every customer.
+    </p>
+</section>
+
+<section>
+    <h2>Our Dresses</h2>
+
+    <div class="product">
+        <img src="floraldress.png" alt="Floral Dress">
+        <p>Floral Summer Dress<br>₹1,499</p>
+        <a href="#order"><button>Order Now</button></a>
+    </div>
+
+    <div class="product">
+        <img src="pinkdress.png" alt="Party Wear Dress">
+        <p>Pink Party Wear Dress<br>₹2,299</p>
+        <a href="#order"><button>Order Now</button></a>
+    </div>
+
+    <div class="product">
+        <img src="dress3.png" alt="Casual Dress">
+        <p>Soft Cotton Casual Dress<br>₹999</p>
+        <a href="#order"><button>Order Now</button></a>
+    </div>
+</section>
+
+<section id="order">
+    <h2>Order Details</h2>
+    <p>Please fill in your contact details to place your order.</p>
+
+    <form>
+        <input type="text" placeholder="Full Name" required><br>
+        <input type="tel" placeholder="Phone Number" required><br>
+        <textarea placeholder="Delivery Address" required></textarea><br>
+        <button type="submit">Submit Order</button>
+    </form>
+</section>
+
+<footer>
+    <h2>Contact Information</h2>
+    <p>
+        Email: rosewearboutique@gmail.com <br>
+        Phone: +91 91234 56789 <br>
+        Address: T. Nagar, Chennai, Tamil Nadu <br>
+        Website: www.rosewearboutique.com
+    </p>
+</footer>
+
+</body>
+</html>

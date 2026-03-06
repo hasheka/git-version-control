@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(to right, #f3e5f5, #e1bee7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(156, 39, 176, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a1b9a;
+        }
+
+        input {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ce93d8;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #8e24aa;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6a1b9a;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <input type="text" id="name" placeholder="Full Name">
+        <div id="nameError" class="error"></div>
+
+        <input type="text" id="email" placeholder="Email">
+        <div id="emailError" class="error"></div>
+
+        <input type="text" id="phone" placeholder="Phone Number">
+        <div id="phoneError" class="error"></div>
+
+        <input type="password" id="password" placeholder="Password">
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <div id="successMsg" class="success"></div>
+</div>
+
+<script>
+function validateForm() {
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("successMsg").innerHTML = "";
+
+    if (name == "") {
+        document.getElementById("nameError").innerHTML = "Name is required";
+        return false;
+    }
+
+    if (email == "" || email.indexOf("@") == -1) {
+        document.getElementById("emailError").innerHTML = "Enter valid email";
+        return false;
+    }
+
+    if (phone == "" || phone.length != 10 || isNaN(phone)) {
+        document.getElementById("phoneError").innerHTML = "Enter valid 10-digit phone number";
+        return false;
+    }
+
+    if (password == "" || password.length < 6) {
+        document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+        return false;
+    }
+
+    document.getElementById("successMsg").innerHTML = "Registration Successful!";
+    return false;
+}
+</script>
+
+</body>
+</html>

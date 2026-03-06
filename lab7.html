@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Version Control</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #1f1c2c, #928dab);
+            color: white;
+        }
+
+        header {
+            background: #111;
+            padding: 20px 50px;
+            text-align: center;
+        }
+
+        header h2 {
+            margin: 0;
+            color: #ff66cc;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #ff66cc;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .operations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 40px 80px;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.6);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            background: rgba(0,0,0,0.85);
+        }
+
+        .card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff66cc;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .card button:hover {
+            background: #ff3399;
+        }
+
+        .terminal {
+            background: black;
+            margin: 40px 80px;
+            padding: 25px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: #00ffcc;
+            min-height: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>GitHub Version Control</h2>
+</header>
+
+<section class="hero">
+    <h1>Version Control using Git & GitHub</h1>
+    <p>Interactive demonstration of repository creation and collaboration workflow</p>
+</section>
+
+<section class="operations">
+
+    <div class="card">
+        <h3>Initialize Repository</h3>
+        <button onclick="showCommand('init')">Run</button>
+    </div>
+
+    <div class="card">
+        <h3>Add Files</h3>
+        <button onclick="showCommand('add')">Run</button>
+    </div>
+
+    <div class="card">
+        <h3>Commit Changes</h3>
+        <button onclick="showCommand('commit')">Run</button>
+    </div>
+
+    <div class="card">
+        <h3>Push to GitHub</h3>
+        <button onclick="showCommand('push')">Run</button>
+    </div>
+
+    <div class="card">
+        <h3>Create Branch</h3>
+        <button onclick="showCommand('branch')">Run</button>
+    </div>
+
+    <div class="card">
+        <h3>Merge Branch</h3>
+        <button onclick="showCommand('merge')">Run</button>
+    </div>
+
+</section>
+
+<div class="terminal" id="output">
+Click any operation above to execute Git command...
+</div>
+
+<script>
+function showCommand(action) {
+    let text = "";
+
+    if(action === "init") {
+        text = "> git init\nRepository initialized.";
+    }
+    else if(action === "add") {
+        text = "> git add .\nFiles staged successfully.";
+    }
+    else if(action === "commit") {
+        text = '> git commit -m "Initial Commit"\nChanges committed locally.';
+    }
+    else if(action === "push") {
+        text = "> git push origin main\nProject pushed to GitHub.";
+    }
+    else if(action === "branch") {
+        text = "> git branch feature\nNew branch created.";
+    }
+    else if(action === "merge") {
+        text = "> git merge feature\nBranches merged successfully.";
+    }
+
+    document.getElementById("output").innerText = text;
+}
+</script>
+
+</body>
+</html>

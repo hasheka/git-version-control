@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Registration Form</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        body { 
+    background-color: #f2f2f2; 
+    font-family: Arial, sans-serif; 
+} 
+ 
+.container { 
+    width: 350px; 
+    margin: 50px auto; 
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+} 
+ 
+h2 { 
+    text-align: center; 
+    color: #333; 
+} 
+ 
+label { 
+    display: block; 
+    margin-top: 10px; 
+} 
+ 
+input, select { 
+    width: 100%; 
+    padding: 8px; 
+    margin-top: 5px; 
+} 
+ 
+button { 
+    width: 100%; 
+    margin-top: 15px; 
+    padding: 10px; 
+    background-color: #007BFF; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+} 
+ 
+button:hover { 
+    background-color: #0056b3; 
+} 
+
+    </style>
+</head> 
+<body> 
+    
+ 
+ 
+    <h2>Registration Form</h2> 
+ 
+
+        <label>Full Name</label> 
+        <input type="text" placeholder="Enter your name" required> 
+        <br>
+        <br>
+        <label>Email</label> 
+        <input type="email" placeholder="Enter your email" required> 
+       <br>
+        <br>
+        <label>Password</label> 
+        <input type="password" placeholder="Enter password" minlength="6" required> 
+        <br>
+        <br>
+        <label>Phone Number</label> 
+        <input type="tel" placeholder="10-digit number" 
+               pattern="[0-9]{10}" required> 
+       <br>
+        <br>
+        <label>Gender</label> 
+        <select required> 
+            <option value="">Select</option> 
+            <option>Male</option> 
+            <option>Female</option> 
+            <option>Other</option> 
+        </select> 
+       <br>
+        <br>
+        <button type="submit">Register</button> 
+
+ 
+</body> 
+</html> 
+ 
