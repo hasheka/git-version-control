@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GadgetHub App - Event Handling</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #eaf4ff;
+            color: #0d2b4d;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #1e88e5, #42a5f5);
+            padding: 35px 10px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        header h1 {
+            margin: 0;
+            letter-spacing: 3px;
+            font-size: 32px;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        /* Sections */
+        section {
+            background-color: #ffffff;
+            width: 80%;
+            margin: 35px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(30,136,229,0.2);
+        }
+
+        h2 {
+            color: #1565c0;
+        }
+
+        /* Products */
+        .product {
+            display: inline-block;
+            width: 220px;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: #f1f8ff;
+            border: 1px solid #90caf9;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* Buttons */
+        button {
+            margin-top: 12px;
+            padding: 10px 22px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        /* Form */
+        input, textarea {
+            width: 60%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #90caf9;
+        }
+
+        #orderSection {
+            display: none;
+        }
+
+        footer {
+            background: linear-gradient(to right, #42a5f5, #1e88e5);
+            padding: 30px;
+            margin-top: 40px;
+            color: white;
+        }
+
+        #successMsg {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HOVER EVENT -->
+<header onmouseover="headerHover()" onmouseout="headerNormal()">
+    <h1>GADGETHUB APP</h1>
+    <p class="tagline">Smart Gadgets for Smart Living</p>
+</header>
+
+<section>
+    <h2>About Us</h2>
+    <p id="aboutText">
+        GadgetHub App provides high-quality electronic accessories for daily use.
+    </p>
+    <!-- CLICK EVENT -->
+    <button onclick="changeAbout()">Know More</button>
+</section>
+
+<section>
+    <h2>Our Products</h2>
+
+    <div class="product">
+        <img src="xech-powerbank-10000mah-fast-charging-for-iphone-samsung-oneplus-realme-1500x1500_white_1.webp">
+        <p>Fast Charging Power Bank<br>₹1,299</p>
+        <button onclick="showOrder(this)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="CrossloopF4GENTrueWirelessEarPods3.webp">
+        <p>Wireless EarPods<br>₹2,499</p>
+        <button onclick="showOrder(this)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="71CdpTGhCoL._SX679.jpg">
+        <p>Adjustable Laptop Stand<br>₹899</p>
+        <button onclick="showOrder(this)">Add to Cart</button>
+    </div>
+</section>
+
+<section id="orderSection">
+    <h2>Order Details</h2>
+
+    <!-- SUBMIT EVENT -->
+    <form onsubmit="submitOrder(event)">
+        <!-- KEYPRESS EVENT -->
+        <input type="text" id="name" placeholder="Full Name"
+               onkeypress="typingName()" required><br>
+
+        <input type="tel" placeholder="Phone Number" required><br>
+
+        <textarea placeholder="Delivery Address" required></textarea><br>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <p id="successMsg"></p>
+</section>
+
+<footer>
+    <h2>Contact Information</h2>
+    <p>
+        Email: support@gadgethub.com <br>
+        Phone: +91 98765 43210 <br>
+        Address: T. Nagar, Chennai <br>
+        Website: www.gadgethub.com
+    </p>
+</footer>
+
+<script>
+
+    // CLICK EVENT (Add to Cart)
+    function showOrder(button) {
+        document.getElementById("orderSection").style.display = "block";
+        button.innerHTML = "Added ✔";
+        button.style.backgroundColor = "green";
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    // CLICK EVENT (About)
+    function changeAbout() {
+        document.getElementById("aboutText").innerHTML =
+            "We deliver premium gadgets with fast shipping and trusted customer service.";
+        document.getElementById("aboutText").style.color = "#1565c0";
+    }
+
+    // HOVER EVENT
+    function headerHover() {
+        document.querySelector("header").style.background =
+            "linear-gradient(to right, #0d47a1, #1976d2)";
+    }
+
+    function headerNormal() {
+        document.querySelector("header").style.background =
+            "linear-gradient(to right, #1e88e5, #42a5f5)";
+    }
+
+    // KEYPRESS EVENT
+    function typingName() {
+        document.getElementById("successMsg").innerHTML =
+            "Typing your name...";
+        document.getElementById("successMsg").style.color = "blue";
+    }
+
+    // SUBMIT EVENT
+    function submitOrder(event) {
+        event.preventDefault();
+        document.getElementById("successMsg").innerHTML =
+            "✅ Order Successfully Placed!";
+        document.getElementById("successMsg").style.color = "green";
+    }
+
+</script>
+
+</body>
+</html>
