@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RoseWear Portal</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #fff1f6;
+}
+
+section {
+    background: white;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+    width: 60%;
+}
+
+button {
+    padding: 8px 15px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#dashboard {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🌸 RoseWear</h1>
+
+<!-- Registration -->
+<section>
+<h3>Registration</h3>
+
+<input id="rEmail" placeholder="Email"><br>
+<input id="rPass" type="password" placeholder="Password"><br>
+
+<p id="rMsg" class="error"></p>
+
+<button onclick="register()">Register</button>
+</section>
+
+<!-- Login -->
+<section>
+<h3>Login</h3>
+
+<input id="lEmail" placeholder="Email"><br>
+<input id="lPass" type="password" placeholder="Password"><br>
+
+<p id="lMsg" class="error"></p>
+
+<button onclick="login()">Login</button>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard">
+<h3>Dashboard</h3>
+
+<p>Floral Dress | Party Wear | Casual</p>
+
+<button onclick="toggle()">Show / Hide Offer</button>
+
+<p id="offer" style="display:none;">20% OFF 🌸</p>
+</section>
+
+<script>
+
+let email = "";
+let pass = "";
+
+function register() {
+    email = document.getElementById("rEmail").value;
+    pass = document.getElementById("rPass").value;
+
+    if (email === "" || pass === "") {
+        document.getElementById("rMsg").innerHTML = "Fill all fields";
+    } else {
+        document.getElementById("rMsg").innerHTML = "Registered ✅";
+    }
+}
+
+function login() {
+    let le = document.getElementById("lEmail").value;
+    let lp = document.getElementById("lPass").value;
+
+    if (le === email && lp === pass) {
+        document.getElementById("lMsg").innerHTML = "Login Success ✅";
+        document.getElementById("dashboard").style.display = "block";
+    } else {
+        document.getElementById("lMsg").innerHTML = "Wrong details ❌";
+    }
+}
+
+function toggle() {
+    let x = document.getElementById("offer");
+
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+</script>
+
+</body>
+</html>
